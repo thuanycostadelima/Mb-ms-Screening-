@@ -16,8 +16,8 @@ from matplotlib import rcParams
 start_time = time.time()
 
 ###############################################################
-### This code plots the magnitude of seismic events according to the \
-### screening criterion in subsection 7.3.2 "Ms:mb screening" \
+### Selecting seismic events according to the
+### screening criterion in subsection 7.3.2 "Ms:mb screening"
 ### on page 143 of the CTBTO IDC/OPS manual
 
 ### Created on the 26th September 2022
@@ -37,10 +37,8 @@ ax = [fig.add_subplot(gs[:,0]), fig.add_subplot(gs[0:2,1]),\
 
 ###############################################################
 ## GLOBAL PARAMETERS
-
 sigmab=0.34
 sigmas=0.23
-
 
 ###############################################################
 ## Reading the information from an input file:
@@ -58,7 +56,6 @@ mb=np.loadtxt(data_file, usecols=6, skiprows=4,dtype=float)
 ms=np.loadtxt(data_file, usecols=7, skiprows=4,dtype=float)
 ml=np.loadtxt(data_file, usecols=8, skiprows=4,dtype=float)
 stnm=np.loadtxt(data_file, usecols=9, skiprows=4, dtype=str)
-
 
 ms_list = np.array(ms)
 mb_list = np.array(mb)
@@ -140,7 +137,7 @@ for index, ev_id in enumerate(ev_uniq):
 			#print(ev_id, SCORE)
 
 
-			## Score equation
+			## Score equation #2
 			#SCORE = ((2.2 - 1.25*mb_mean + ms_mean)\
 			#		/  ( 2 *sigmam ) ) - 1
 			
@@ -173,7 +170,6 @@ ms_mean = np.array(ms_mean_condition_list)
 # mean values of magnitude for the events that are not screend out
 mb_xmean = np.array(mb_mean_xcondition_list)
 ms_xmean = np.array(ms_mean_xcondition_list)
-
 
 
 ###############################################################
@@ -266,7 +262,6 @@ for x, y in zip(mb_xmean, ms_xmean):
 ax[0].plot(mb_xmean[0], ms_xmean[0],'.',color='black',markerfacecolor='goldenrod', markeredgewidth=0.2, label="%s Not Screened Out"% len(mb_xmean)) # label
 
 
-
 ################################################
 ### Plotting the screening line ms=mb-0.64:
 
@@ -277,12 +272,11 @@ i_list=np.array(i_list)
 
 ax[0].plot(i_list, i_list-0.64, '--', color='black', linewidth=0.8,label="Ms = mb - 0.64")
 #ax[0].plot(i_list, i_list-0.64 + 1.96*sigmam, '--', color='black', label="Ms = mb - 0.64 + 1.96*sigmam")
-
 #ax[0].plot(i_list, 1.25*i_list-2.2, '--', color='red', linewidth=0.8, label="Ms = 1.25mb - 2.2")
 
 
 ################################################
-#### Making the figure prettier
+#### Making the figure prettier :)
 
 ax[0].grid(ls='--', color='k', lw=0.5, alpha=0.5)        
 #ax[0].annotate('(%c)' % (ord('a')), xy=(-0.05, .98), xycoords='axes fraction', ha='right', fontweight='bold', fontsize=12)
@@ -291,7 +285,7 @@ ax[0].legend(loc="upper left", fontsize=10)
 ax[1].grid(ls='--', color='k', lw=0.5, alpha=0.5) 
 ax[2].grid(ls='--', color='k', lw=0.5, alpha=0.5) 
 
-      
+     
 ################################################
 #### Plotting the histograms of Ms, and Mb
 bins=np.linspace(2, 7, 100)
