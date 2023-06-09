@@ -1,10 +1,11 @@
-# Ms-mb-screening
+''' 
 
-### Screening seismic events according to the
-### "Ms:mb screening" screening criterion in subsection 7.3.2
-### on page 143 of the CTBTO IDC/OPS manual
+Created 26th Sept 22
 
-### Created on the 26th September 2022
-### E-mail: Thuany.CostadeLima@ga.gov.au
+@author: TCostadeLima (Thuany.CostadeLima@ga.gov.au)
 
-python doscreening.py
+This code screens earthquakes from nuclear explosions according to the "Ms:mb screening" criterion in subsection 7.3.2 on page 143 of the CTBTO IDC/OPS manual. 
+
+just run: python doscreening.py
+
+'''
